@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#game {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: #444;
+    border: 2px solid #fff;
+}
+
+#frog {
+    position: absolute;
+    font-size: 32px;
+    top: 360px;
+    left: 180px;
+    user-select: none;
+}
+
+.vehicle {
+    position: absolute;
+    font-size: 32px;
+    user-select: none;
+    pointer-events: none;
+}
+
+

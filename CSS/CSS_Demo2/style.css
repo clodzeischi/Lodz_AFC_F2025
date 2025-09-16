@@ -1,0 +1,23 @@
+body {
+    height: 100vh;
+    margin: 0;
+    background: radial-gradient(circle at 50% 50%, #ffecd2, #fcb69f);
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease-in-out infinite;
+    transition: background 1s ease;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 25% 25%; }
+    25% { background-position: 75% 25%; }
+    50% { background-position: 75% 75%; }
+    75% { background-position: 25% 75%; }
+    100% { background-position: 25% 25%; }
+}
+
+p {
+    background-color: dodgerblue;
+    border: solid black 1px;
+    padding: 10px;
+    margin: 20px 20%;
+}

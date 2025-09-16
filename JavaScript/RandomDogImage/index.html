@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Random Dog Image Generator</h1>
+<label for="breeds">Choose a breed:</label>
+<select name="breeds" id="breeds">
+    <option value="african" selected>African</option>
+    <option value="borzoi">Borzoi</option>
+    <option value="chow">Chow</option>
+</select>
+<button id="but-random-dog">Get Random Dog</button>
+<br>
+<img id="img-dog" alt="Random Dog"/>
+
+<script>
+    const randomDogButton = document.getElementById('but-random-dog');
+    const randomDogImage = document.getElementById('img-dog');
+    const dropdownBreed = document.getElementById('breeds');
+    randomDogButton.addEventListener('click', (e) => {
+
+        getData();
+    });
+
+    async function getData() {
+        const BASE_URL = "https://dog.ceo/api/breed/";
+        const BREED = dropdownBreed.value;
+        const END_POINT = "/images/random"
+        try {
+            const response = await fetch(BASE_URL + BREED + END_POINT);
+            if (!response.ok) {
+                throw new Error(`Response status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            randomDogImage.src = result.message;
+
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
+    window.onload(getData());
+</script>
+
+</body>
+</html>
